@@ -12,7 +12,7 @@ from aws_cdk import (
 
 from constructs import Construct
 
-class WebserversDevNetworkStack(Stack):
+class wsDevNetworkStack(Stack):
 
     @property
     def vpc(self):
@@ -25,7 +25,7 @@ class WebserversDevNetworkStack(Stack):
         self.engineering_vpc = ec2.Vpc(self, "engineering_vpc", 
                             ip_addresses=ec2.IpAddresses.cidr("10.0.0.0/18"),
                             subnet_configuration=[
-                                ec2.SubnetConfiguration(name="PublicSubnet01",subnet_type=ec2.SubnetType.PUBLIC),
-                                ec2.SubnetConfiguration(name="PublicSubnet02",subnet_type=ec2.SubnetType.PUBLIC)
+                                ec2.SubnetConfiguration(name="PublicSubnet01",subnet_type=ec2.SubnetType.PUBLIC,ip_addresses=ec2.IpAddresses.cidr("10.0.0.0/24")),
+                                ec2.SubnetConfiguration(name="PublicSubnet02",subnet_type=ec2.SubnetType.PUBLIC,ip_addresses=ec2.IpAddresses.cidr("10.0.1.0/24"))
                             ]
         )

@@ -7,7 +7,9 @@ from aws_cdk import (
     Stack,
     aws_ec2 as ec2,
     aws_iam as iam,
-    aws_rds as rds
+    aws_rds as rds,
+    aws_elasticloadbalancingv2 as elbv2,
+    CfnOutput
     # aws_sqs as sqs,
 )
 
@@ -15,7 +17,7 @@ from constructs import Construct
 
 dirname = os.path.dirname(__file__)
         
-class WebserversDevWebServerStack(Stack):
+class wsDevWebServerStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, engineering_vpc: ec2.Vpc, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
