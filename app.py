@@ -3,12 +3,11 @@ import os
 
 import aws_cdk as cdk
 
-from ws_dev.ws_dev_stack import wsDevStack
-from ws_dev.network_stack import CdkLabNetworkStack
+from WebserversDev_web_server.ws_dev_stack import wsDevStack
+
 
 app = cdk.App()
-NetworkStack = CdkLabNetworkStack(app,"EngineeringVPC")
-wsDevStack(app, "wsDevStack", cdk_lab_vpc = NetworkStack.engineering_vpc
+wsDevStack(app, "wsDevStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
